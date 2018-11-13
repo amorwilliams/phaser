@@ -20,7 +20,7 @@ var Phaser = {
     Cameras: { Scene2D: require('./cameras/2d') },
     Class: require('./utils/Class'),
     Data: require('./data'),
-    Display: { Masks: require('./display/mask') },
+    Display: require('./display'),
     Events: require('./events'),
     Game: require('./boot/Game'),
     GameObjects: {
@@ -75,14 +75,7 @@ var Phaser = {
         XHRLoader: require('./loader/XHRLoader'),
         XHRSettings: require('./loader/XHRSettings')
     },
-    Math: {
-        Between: require('./math/Between'),
-        DegToRad: require('./math/DegToRad'),
-        FloatBetween: require('./math/FloatBetween'),
-        RadToDeg: require('./math/RadToDeg'),
-        Vector2: require('./math/Vector2')
-    },
-    Plugins: require('./plugins'),
+    Math: require('./math'),
     Renderer: require('./renderer'),
     Scene: require('./scene/Scene'),
     Scenes: require('./scene'),
@@ -90,7 +83,8 @@ var Phaser = {
     Structs: require('./structs'),
     Textures: require('./textures'),
     Time: require('./time'),
-    Tweens: require('./tweens')
+    Tweens: require('./tweens'),
+    Utils: require('./utils')
 };
 
 //   Merge in the consts

@@ -294,7 +294,7 @@ var File = new Class({
             {
                 //  The creation of this XHRLoader starts the load process going.
                 //  It will automatically call the following, based on the load outcome:
-                //  
+                //
                 // xhr.onload = this.onLoad
                 // xhr.onerror = this.onError
                 // xhr.onprogress = this.onProgress
@@ -315,7 +315,11 @@ var File = new Class({
      */
     onLoad: function (xhr, event)
     {
-        var success = !(event.target && event.target.status !== 200);
+        var success = true;
+        if (event && event.target)
+        {
+            success = event.target.status !== 200;
+        }
 
         //  Handle HTTP status codes of 4xx and 5xx as errors, even if xhr.onerror was not called.
         if (xhr.readyState === 4 && xhr.status >= 400 && xhr.status <= 599)
@@ -457,7 +461,7 @@ var File = new Class({
      *     // Your handler code
      * });
      * ```
-     * 
+     *
      * @event Phaser.Loader.File#fileCompleteEvent
      * @param {string} key - The key of the file that just loaded and finished processing.
      * @param {string} type - The type of the file that just loaded and finished processing.
@@ -467,10 +471,10 @@ var File = new Class({
     /**
      * You can listen for this event from the LoaderPlugin. It is dispatched only once per
      * file and you have to use a special listener handle to pick it up.
-     * 
+     *
      * The string of the event is based on the file type and the key you gave it, split up
      * using hyphens.
-     * 
+     *
      * For example, if you have loaded an image with a key of `monster`, you can listen for it
      * using the following:
      *
@@ -481,21 +485,21 @@ var File = new Class({
      * ```
      *
      * Or, if you have loaded a texture atlas with a key of `Level1`:
-     * 
+     *
      * ```javascript
      * this.load.on('filecomplete-atlas-Level1', function (key, type, data) {
      *     // Your handler code
      * });
      * ```
-     * 
+     *
      * Or, if you have loaded a sprite sheet with a key of `Explosion` and a prefix of `GAMEOVER`:
-     * 
+     *
      * ```javascript
      * this.load.on('filecomplete-spritesheet-GAMEOVERExplosion', function (key, type, data) {
      *     // Your handler code
      * });
      * ```
-     * 
+     *
      * @event Phaser.Loader.File#singleFileCompleteEvent
      * @param {any} data - The data of the file.
      */
