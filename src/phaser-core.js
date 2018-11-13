@@ -37,12 +37,14 @@ var Phaser = {
         Sprite: require('./gameobjects/sprite/Sprite'),
         Text: require('./gameobjects/text/static/Text'),
         Container: require('./gameobjects/container/Container'),
+        Zone: require('./gameobjects/zone/Zone'),
         Factories: {
             Graphics: require('./gameobjects/graphics/GraphicsFactory'),
             Image: require('./gameobjects/image/ImageFactory'),
             Sprite: require('./gameobjects/sprite/SpriteFactory'),
             Text: require('./gameobjects/text/static/TextFactory'),
             Container: require('./gameobjects/container/ContainerFactory'),
+            Zone: require('./gameobjects/zone/ZoneFactory'),
         },
         Creators: {
             Graphics: require('./gameobjects/graphics/GraphicsCreator'),
@@ -50,6 +52,7 @@ var Phaser = {
             Sprite: require('./gameobjects/sprite/SpriteCreator'),
             Text: require('./gameobjects/text/static/TextCreator'),
             Container: require('./gameobjects/container/ContainerCreator'),
+            Zone: require('./gameobjects/zone/ZoneCreator'),
         }
     },
     Input: require('./input'),
